@@ -58,7 +58,7 @@ def SignUp():
             flash("Passwords don't match.", category="error")
         else:
             new_user = User(email=email, first_name=first_name.title(),
-                            last_name=last_name.title(), password=generate_password_hash(password, 'sha256'))
+                            last_name=last_name.title(), password=generate_password_hash(password, 'sha256'),is_admin=True)
             db.session.add(new_user)
             db.session.commit()
             login_user(user)

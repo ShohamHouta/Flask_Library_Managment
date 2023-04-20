@@ -4,7 +4,7 @@ from os import path
 from flask_login import LoginManager
 
 db = SQLAlchemy()
-DB_NAME = "Notes.db"
+DB_NAME = "Library.db"
 
 
 def create_app():
@@ -19,7 +19,7 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/auth/')
 
-    from .models import Note, User
+    from .models import Book, User
 
     with app.app_context():
         if not path.exists("website/"+DB_NAME):
